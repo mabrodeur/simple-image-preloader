@@ -1,5 +1,5 @@
 /*
- * VERSION: 1.0.0
+ * VERSION: 1.0.1
  * DATE: 2014-08-22
  * 
  * Copyright © 2014, Marc-Antoine Brodeur (http://marcantoinebrodeur.com)
@@ -46,12 +46,12 @@ function preloadImages(basePath, arr, callback){
         imagesToLoad[i].onerror=function(){
             imageLoadDone();
         }
-
-        function imageLoadDone(){
-        	loadedImages++;
-        	if(loadedImages == arr.length){
-        		callbackFunction();
-        	}
-        }
 	} 
+
+    function imageLoadDone(){
+    	loadedImages++;
+    	if(loadedImages == arr.length){
+    		callbackFunction();
+    	}
+    }
 }
