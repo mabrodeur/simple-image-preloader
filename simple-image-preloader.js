@@ -20,38 +20,41 @@
 
 function preloadImages(basePath, arr, callback){
 
-	if(arguments.length > 3){
-		throw new Error('Illegal argument count.');
-		return false;
-	} else if(typeof basePath != "string"){
-		throw new Error('First argument needs to be a string!');
-		return false;
-	} else if(!(arr instanceof Array)){
-		throw new Error('Second argument needs to be an array of strings!');
-		return false;
-	} else if(typeof callback != 'undefined' && typeof callback != "function"){
-		throw new Error('Third argument needs to be a function!');
-		return false;
-	}
+    if(arguments.length > 3){
+        throw new Error('Illegal argument count.');
+        return false;
+    } else if(typeof basePath != "string"){
+        throw new Error('First argument needs to be a string!');
+        return false;
+    } else if(!(arr instanceof Array)){
+        throw new Error('Second argument needs to be an array of strings!');
+        return false;
+    } else if(typeof callback != 'undefined' && typeof callback != "function"){
+        throw new Error('Third argument needs to be a function!');
+        return false;
+    }
 
-	var callbackFunction = (typeof callback != "function") ? function(){} : callback;
+    var callbackFunction = (typeof callback != "function") ? function(){} : callback;
 
-	var imagesToLoad=[], loadedImages=0;
-	for (var i = 0 ; i < arr.length; i++){
-		imagesToLoad[i] = new Image;
-   		imagesToLoad[i].src = basePath+arr[i];
-   		imagesToLoad[i].onload=function(){
+    var imagesToLoad=[], loadedImages=0;
+
+    for (var i = 0 ; i < arr.length; i++){
+        imagesToLoad[i] = new Image;
+        imagesToLoad[i].src = basePath+arr[i];
+
+        imagesToLoad[i].onload=function(){
             imageLoadDone();
         }
+
         imagesToLoad[i].onerror=function(){
             imageLoadDone();
         }
-	} 
+    } 
 
     function imageLoadDone(){
-    	loadedImages++;
-    	if(loadedImages == arr.length){
-    		callbackFunction();
-    	}
+        loadedImages++;
+        if(loadedImages == arr.length){
+            callbackFunction();
+        }
     }
 }
