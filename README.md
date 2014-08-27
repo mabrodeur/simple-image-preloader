@@ -4,7 +4,7 @@ simple-image-preloader
 ## Really simple JavaScript image preloader with callback. 1kb minified.
 
 
-### Version: 1.0.2 - Date: 2014-08-23
+### Version: 1.0.3 - Date: 2014-08-27
 ```
 preloadImages(basePath, arr, callback);
 

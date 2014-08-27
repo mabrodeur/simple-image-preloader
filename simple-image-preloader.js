@@ -1,5 +1,5 @@
 /*
- * VERSION: 1.0.2
+ * VERSION: 1.0.3
  * DATE: 2014-08-22
  * 
  * Copyright © 2014, Marc-Antoine Brodeur (http://marcantoinebrodeur.com)
@@ -36,25 +36,31 @@ function preloadImages(basePath, arr, callback){
 
     var callbackFunction = (typeof callback == "undefined") ? function(){} : callback;
 
-    var imagesToLoad=[], loadedImages=0;
+    if(arr.length == 0){
+        callbackFunction();
+    } else {
 
-    for (var i = 0 ; i < arr.length; i++){
-        imagesToLoad[i] = new Image;
-        imagesToLoad[i].src = basePath+arr[i];
+        var imagesToLoad=[], loadedImages=0;
 
-        imagesToLoad[i].onload=function(){
-            imageLoadDone();
-        }
+        for (var i = 0 ; i < arr.length; i++){
+            imagesToLoad[i] = new Image;
+            imagesToLoad[i].src = basePath+arr[i];
 
-        imagesToLoad[i].onerror=function(){
-            imageLoadDone();
-        }
-    } 
+            imagesToLoad[i].onload=function(){
+                imageLoadDone();
+            }
 
-    function imageLoadDone(){
-        loadedImages++;
-        if(loadedImages == arr.length){
-            callbackFunction();
+            imagesToLoad[i].onerror=function(){
+                imageLoadDone();
+            }
+        } 
+
+        function imageLoadDone(){
+            loadedImages++;
+            if(loadedImages == arr.length){
+                callbackFunction();
+            }
         }
     }
+
 }
