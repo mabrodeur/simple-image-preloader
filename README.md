@@ -1,7 +1,7 @@
 simple-image-preloader
 ======================
 
-## Really simple JavaScript image preloader with callback. 1kb minified.
+## Really simple JavaScript image preloader with callback. ~0.8kb  minified.
 
 
 ### Version: 1.0.3 - Date: 2014-08-27
