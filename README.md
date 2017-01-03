@@ -4,11 +4,10 @@ simple-image-preloader
 ## Really simple JavaScript image preloader with callback. ~0.8kb  minified.
 
 
-### Version: 1.0.3 - Date: 2014-08-27
+### Version: 1.1 - Date: 2017-01-03
 ```
-preloadImages(basePath, arr, callback);
+preloadImages(arr, callback);
 
-@param  basePath : (String) base location of the images
 @param  arr : (Array) array of file names with extensions
 @param  callback : (function) Optional callback function executed after all images have loaded
 ```
@@ -27,12 +26,12 @@ Include simple-image-preloader.js in your JavaScript bundle or add it to your HT
 
 To start preloading, execute the script like in this example:
 ```js
-preloadImages('images/', ['image1.png', 'image2.jpg', 'image3.gif'], function(){ 
+preloadImages(['images/image1.png', 'images/subfolder/image2.jpg', 'image3.gif'], function(){ 
 	//callback actions here
 });
 ```
 
 ### Copyright
-Copyright © 2014, Marc-Antoine Brodeur (http://marcantoinebrodeur.com)
+Copyright © 2017, Marc-Antoine Brodeur (http://marcantoinebrodeur.com)
 
 simple-image-preloader is licensed under the MIT license. (http://opensource.org/licenses/MIT)
